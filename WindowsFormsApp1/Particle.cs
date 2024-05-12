@@ -19,6 +19,8 @@ namespace WindowsFormsApp1
 
         public float Life;
         public static Random rand= new Random();
+        public Color colorTo=Color.White;
+        public Color colorFrom = Color.FromArgb(0, Color.White);
         public Particle() {
             var direction = (double)rand.Next(360);
             var speed = 1+rand.Next(10);
@@ -35,7 +37,7 @@ namespace WindowsFormsApp1
             float k = Math.Min(1f, Life / 100);
             //прозрачность
             int alpha = (int)(k * 255);
-            var color=Color.FromArgb(alpha,Color.Black);
+            var color=Color.FromArgb(alpha,this.colorTo);
             //Создание кисти для рисования
             var b=new SolidBrush(color);
             g.FillEllipse(b,X-Radius,Y-Radius,Radius*2,Radius*2);
@@ -59,7 +61,7 @@ namespace WindowsFormsApp1
         public override void Draw(Graphics g)
         {
             float k = Math.Min(1f,Life / 100);
-            var color=MixColor(ToColor,FromColor,k);
+            var color=MixColor(this.colorTo,this.colorFrom,k);
             var b=new SolidBrush(color);
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
             b.Dispose();

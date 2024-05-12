@@ -46,13 +46,14 @@ namespace WindowsFormsApp1
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
             particle.Radius = Particle.rand.Next(RadiusMin, RadiusMax);
+            this.ColorTo = Color.White;
+            this.ColorFrom=Color.White;
         }
         public virtual Particle CreateParticle()
         {
             var particle = new ParticleColorful();
             particle.FromColor = ColorFrom;
             particle.ToColor = ColorTo;
-
             return particle;
         }
         public void UpdateState()
@@ -79,7 +80,7 @@ namespace WindowsFormsApp1
                     particle.Y += particle.SpeedY;
                     foreach (var point in impactPoints)
                     {
-                        point.ImpactParticle(particle);
+                        point.ImpactParticle(particle,this);
                     }
 
                     // гравитация воздействует на вектор скорости, поэтому пересчитываем его
