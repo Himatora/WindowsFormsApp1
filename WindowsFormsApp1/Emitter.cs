@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         List<Particle> particles = new List<Particle>();
         public int MousePositionX;
         public int MousePositionY;
-        public int ParticlesCount = 500;
+        public int ParticlesCount = 800;
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
         public int Direction = 0; // вектор направления в градусах куда сыпет эмиттер
@@ -80,7 +80,7 @@ namespace WindowsFormsApp1
                     particle.Y += particle.SpeedY;
                     foreach (var point in impactPoints)
                     {
-                        point.ImpactParticle(particle,this);
+                        point.ImpactParticle(particle);
                     }
 
                     // гравитация воздействует на вектор скорости, поэтому пересчитываем его

@@ -42,13 +42,13 @@ namespace WindowsFormsApp1
             {   
                 color= Color.Yellow,
                 X = picDisplay.Width / 2 +100,
-                Y = picDisplay.Height / 2 +50,
+                Y = picDisplay.Height / 2,
             };
             green = new GravityPoint
             {
                 color= Color.Green,
                 X = picDisplay.Width / 2 - 100,
-                Y = picDisplay.Height / 2+50,
+                Y = picDisplay.Height / 2,
             };
            blue = new GravityPoint
             {
@@ -91,18 +91,47 @@ namespace WindowsFormsApp1
 
         private void tbDirection_Scroll(object sender, EventArgs e)
         {
-            emitter.Direction = tbDirection.Value;
+            red.Y =picDisplay.Height-tbDirection.Value;
+            green.Y = picDisplay.Height-tbDirection.Value;
+            blue.Y = tbDirection.Value;
+            yelow.Y = tbDirection.Value;
             lblDirection.Text = $"{tbDirection.Value}°"; // добавил вывод значения
         }
 
         private void tbGraviton_Scroll(object sender, EventArgs e)
         {
-            yelow.Power = tbGraviton.Value;
+            blue.Power = tbGraviton.Value;
         }
 
         private void tbGraviton2_Scroll(object sender, EventArgs e)
         {
-            red.Power = tbGraviton2.Value;
+            green.Power = tbGraviton2.Value;
+        }
+
+        private void tbYelow_Scroll(object sender, EventArgs e)
+        {
+            yelow.Power=tbYelow.Value;
+        }
+
+        private void tbRed_Scroll(object sender, EventArgs e)
+        {
+            red.Power=tbRed.Value;
+        }
+
+        private void bChange_Click(object sender, EventArgs e)
+        {
+            if(red.color==Color.Red) { 
+            red.color = Color.Aqua;
+            blue.color = Color.Violet;
+            green.color = Color.YellowGreen;
+            yelow.color = Color.Orange;}
+            else
+            {
+                red.color = Color.Red;
+                blue.color = Color.Blue;
+                green.color = Color.Green;
+                yelow.color = Color.Yellow;
+            }
         }
     }
 }
