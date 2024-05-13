@@ -13,12 +13,12 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        List<Emitter> emitters = new List<Emitter>();
+        //List<Emitter> emitters = new List<Emitter>();
         TopEmitter emitter; // добавим поле для эмиттера
         GravityPoint red; // добавил поле под первую точку
         GravityPoint yelow; // добавил поле под вторую точку
-        GravityPoint green; // добавил поле под первую точку
-        GravityPoint blue; // добавил поле под вторую точку
+        GravityPoint green; // добавил поле под третью точку
+        GravityPoint blue; // добавил поле под четвертую точку
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
                 Width = picDisplay.Width,
                 GravitationY = 0.25f
             };
-            emitters.Add(this.emitter); // все равно добавляю в список emitters, чтобы он рендерился и обновлялся
+            //emitters.Add(this.emitter); // все равно добавляю в список emitters, чтобы он рендерился и обновлялся
                                         // добавил гравитон
                                         // привязываем гравитоны к полям
             red = new GravityPoint
@@ -124,13 +124,22 @@ namespace WindowsFormsApp1
             red.color = Color.Aqua;
             blue.color = Color.Violet;
             green.color = Color.YellowGreen;
-            yelow.color = Color.Orange;}
+            yelow.color = Color.Orange;
+                label4.Text = "Бирюзовый";
+                label2.Text = "Фиолетовый";
+                label3.Text = "Салатовый";
+                label5.Text = "Оранжевый";
+            }
             else
             {
                 red.color = Color.Red;
                 blue.color = Color.Blue;
                 green.color = Color.Green;
                 yelow.color = Color.Yellow;
+                label4.Text = "Красный";
+                label2.Text = "Синий";
+                label3.Text = "Зелёный";
+                label5.Text = "Жёлтый";
             }
         }
     }

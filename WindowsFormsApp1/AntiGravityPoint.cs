@@ -10,7 +10,6 @@ namespace WindowsFormsApp1
     {
         public int Power = 100; // сила отторжения
 
-        // а сюда по сути скопировали с минимальными правками то что было в UpdateState
         public override void ImpactParticle(Particle particle)
         {
             float gX = X - particle.X;

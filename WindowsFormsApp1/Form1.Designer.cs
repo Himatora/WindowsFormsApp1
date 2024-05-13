@@ -72,6 +72,7 @@
             this.tbDirection.Name = "tbDirection";
             this.tbDirection.Size = new System.Drawing.Size(250, 56);
             this.tbDirection.TabIndex = 1;
+            this.tbDirection.Value = 176;
             this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
             // lblDirection
@@ -197,7 +198,7 @@
             this.Controls.Add(this.tbDirection);
             this.Controls.Add(this.picDisplay);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Цветной снегопад";
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).EndInit();

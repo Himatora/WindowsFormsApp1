@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         List<Particle> particles = new List<Particle>();
         public int MousePositionX;
         public int MousePositionY;
-        public int ParticlesCount = 800;
+        //public int ParticlesCount = 1000;
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
         public int Direction = 0; // вектор направления в градусах куда сыпет эмиттер
@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
         public int RadiusMax = 10; // максимальный радиус частицы
         public int LifeMin = 20; // минимальное время жизни частицы
         public int LifeMax = 100; // максимальное время жизни частицы
-        public int ParticlesPerTick = 1;
+        public int ParticlesPerTick = 4;
         public Color ColorFrom = Color.White; // начальный цвет частицы
         public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
         public virtual void ResetParticle(Particle particle)
@@ -46,8 +46,7 @@ namespace WindowsFormsApp1
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
             particle.Radius = Particle.rand.Next(RadiusMin, RadiusMax);
-            this.ColorTo = Color.White;
-            this.ColorFrom=Color.White;
+
         }
         public virtual Particle CreateParticle()
         {
@@ -80,7 +79,7 @@ namespace WindowsFormsApp1
                     particle.Y += particle.SpeedY;
                     foreach (var point in impactPoints)
                     {
-                        point.ImpactParticle(particle);
+                        point.ImpactParticle(particle);//изменяем состояние
                     }
 
                     // гравитация воздействует на вектор скорости, поэтому пересчитываем его
